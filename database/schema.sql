@@ -6,6 +6,28 @@ SET FOREIGN_KEY_CHECKS = 0;
 SET NAMES utf8mb4;
 
 -- ---------------------------------------------------------------------
+-- Bersihkan tabel lama (jika ada) agar instalasi selalu dari kondisi
+-- bersih. Mencegah error foreign key (errno 150) akibat tabel sisa
+-- dari percobaan instalasi sebelumnya atau aplikasi lain di DB ini.
+-- ---------------------------------------------------------------------
+DROP TABLE IF EXISTS `attempt_subskor`;
+DROP TABLE IF EXISTS `attempt_jawaban`;
+DROP TABLE IF EXISTS `attempt`;
+DROP TABLE IF EXISTS `delegasi`;
+DROP TABLE IF EXISTS `pengajuan_ulang`;
+DROP TABLE IF EXISTS `soal_opsi`;
+DROP TABLE IF EXISTS `soal`;
+DROP TABLE IF EXISTS `paket_soal`;
+DROP TABLE IF EXISTS `narasi_rentang`;
+DROP TABLE IF EXISTS `sub_kemampuan`;
+DROP TABLE IF EXISTS `bab`;
+DROP TABLE IF EXISTS `mata_pelajaran`;
+DROP TABLE IF EXISTS `kelas`;
+DROP TABLE IF EXISTS `siswa_detail`;
+DROP TABLE IF EXISTS `pengaturan`;
+DROP TABLE IF EXISTS `users`;
+
+-- ---------------------------------------------------------------------
 -- USERS (Admin / Pembuat Soal / Siswa)
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users` (
