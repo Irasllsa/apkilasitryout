@@ -1,0 +1,13 @@
+{
+  "name": "temanjuara-tryout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi Tryout Bimbel Teman Juara",
+  "scripts": {
+    "build": "tailwindcss -i ./resources/css/input.css -o ./assets/css/app.css --minify",
+    "watch": "tailwindcss -i ./resources/css/input.css -o ./assets/css/app.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
