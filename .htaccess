@@ -1,0 +1,28 @@
+# =====================================================================
+#  TemanJuara - Apache rewrite ke front controller
+# =====================================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Jangan rewrite untuk installer
+    RewriteRule ^install/ - [L]
+
+    # Lewati file & folder yang benar-benar ada
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Selebihnya arahkan ke index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Keamanan: blokir akses langsung ke folder/berkas sensitif
+RedirectMatch 403 ^/(app|config|database|routes)/.*$
+RedirectMatch 403 ^/.*\.(sql|md|json|lock)$
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+Options -Indexes

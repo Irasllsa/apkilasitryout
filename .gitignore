@@ -1,0 +1,15 @@
+# Konfigurasi & kunci (jangan di-commit)
+/config/config.php
+/config/installed.lock
+
+# Upload pengguna
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+
+# Dependensi build Tailwind
+/node_modules
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
